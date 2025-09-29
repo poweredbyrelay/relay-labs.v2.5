@@ -492,10 +492,28 @@
             let hasConsented = false;
             let phoneStarted = false;
 
-            // Track when user starts typing in phone field
+            // Track any input method (typing, paste, autofill)
             phoneInput.addEventListener('input', function(e) {
-                // Only show modal on first character typed and if not already consented
-                if (e.target.value.length === 1 && !phoneStarted && !hasConsented) {
+                // Check if any value exists and modal hasn't been shown
+                if (e.target.value.length > 0 && !phoneStarted && !hasConsented) {
+                    phoneStarted = true;
+                    // Store the value temporarily
+                    const tempValue = e.target.value;
+                    // Clear the field
+                    e.target.value = '';
+                    // Show modal
+                    showSmsModal();
+                    // Store temp value to restore if they agree
+                    phoneInput.dataset.tempValue = tempValue;
+                }
+            });
+            
+            // Also catch paste events specifically
+            phoneInput.addEventListener('paste', function(e) {
+                if (!hasConsented) {
+                    e.preventDefault();
+                    const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+                    phoneInput.dataset.tempValue = pastedText;
                     phoneStarted = true;
                     showSmsModal();
                 }
@@ -517,6 +535,11 @@
             agreeBtn.addEventListener('click', function() {
                 hasConsented = true;
                 hideSmsModal();
+                // Restore the temp value if it exists
+                if (phoneInput.dataset.tempValue) {
+                    phoneInput.value = phoneInput.dataset.tempValue;
+                    delete phoneInput.dataset.tempValue;
+                }
                 phoneInput.focus();
             });
 
