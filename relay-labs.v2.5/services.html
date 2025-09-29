@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Relay Labs</title>
+    <meta name="description" content="Explore our comprehensive AI automation services including AI phone assistants, chatbots, appointment booking, email automation, and more.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Enhanced Services Page Styles */
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a0a1f 25%, #0f0518 50%, #1a1124 75%, #0a0a0f 100%);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.12), rgba(168, 85, 247, 0.06));
+            border-bottom: 1px solid rgba(124, 92, 255, 0.15);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(124, 92, 255, 0.1), transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08), transparent 50%);
+            pointer-events: none;
+        }
+        
+        .page-header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #a855f7, #7c5cff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-header p {
+            font-size: 1.4rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .services-content {
+            padding: 100px 0;
+            background: linear-gradient(180deg, 
+                rgba(10, 10, 15, 0.95) 0%, 
+                rgba(15, 16, 24, 0.98) 30%,
+                rgba(20, 18, 32, 0.99) 70%,
+                rgba(10, 10, 15, 0.95) 100%
+            );
+        }
+        
+        .services-list {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Animated gradient dividers */
+        .service-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.3), rgba(168, 85, 247, 0.2), transparent);
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.8), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Service Card Design */
+        .service-card {
+            background: linear-gradient(145deg, rgba(18, 19, 32, 0.8), rgba(15, 16, 24, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.2s; }
+        .service-card:nth-child(5) { animation-delay: 0.3s; }
+        .service-card:nth-child(7) { animation-delay: 0.4s; }
+        .service-card:nth-child(9) { animation-delay: 0.5s; }
+        .service-card:nth-child(11) { animation-delay: 0.6s; }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.6), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(124, 92, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(124, 92, 255, 0.2);
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Service Card Header */
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.2), rgba(168, 85, 247, 0.1));
+            border-radius: 16px;
+            border: 1px solid rgba(124, 92, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.3), rgba(168, 85, 247, 0.2));
+            border-color: rgba(124, 92, 255, 0.5);
+            transform: scale(1.1);
+        }
+
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: #a855f7;
+            fill: none;
+            stroke-width: 1.5;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon svg {
+            stroke: #7c5cff;
+            filter: drop-shadow(0 0 12px rgba(124, 92, 255, 0.6));
+        }
+
+        .service-title-section {
+            flex-grow: 1;
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .service-subtitle {
+            font-size: 1rem;
+            color: #a855f7;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            color: #d4d4d8;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        /* Key Benefits List */
+        .key-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+        }
+
+        .key-benefits li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+
+        .key-benefits li::before {
+            content: '→';
+            color: #7c5cff;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-right: 12px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* Progressive Disclosure Toggle */
+        .expand-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 16px 20px;
+            background: rgba(124, 92, 255, 0.08);
+            border: 1px solid rgba(124, 92, 255, 0.2);
+            border-radius: 12px;
+            color: #a855f7;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+        }
+
+        .expand-toggle:hover {
+            background: rgba(124, 92, 255, 0.15);
+            border-color: rgba(124, 92, 255, 0.4);
+            color: #7c5cff;
+        }
+
+        .expand-toggle:focus {
+            outline: 2px solid rgba(124, 92, 255, 0.6);
+            outline-offset: 2px;
+        }
+
+        .expand-icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-toggle.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Expandable Content */
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .expandable-content.expanded {
+            max-height: 1000px;
+        }
+
+        .expandable-inner {
+            padding: 0 20px 24px 20px;
+            background: rgba(124, 92, 255, 0.03);
+            border-radius: 12px;
+            margin-top: -16px;
+            padding-top: 24px;
+        }
+
+        .detailed-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .detailed-benefits li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #d4d4d8;
+            line-height: 1.6;
+        }
+
+        .detailed-benefits li::before {
+            content: '✓';
+            color: #7c5cff;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-right: 12px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.1), rgba(168, 85, 247, 0.05));
+            border-radius: 24px;
+            margin-top: 80px;
+            border: 1px solid rgba(124, 92, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.05), transparent 60%);
+            pointer-events: none;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: linear-gradient(135deg, #7c5cff, #a855f7);
+            color: white;
+            text-decoration: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #6d4eff, #9333ea);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(124, 92, 255, 0.4);
+        }
+
+        .cta-button:focus {
+            outline: 2px solid rgba(124, 92, 255, 0.6);
+            outline-offset: 4px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Accessibility & Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .service-card {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+
+            .service-divider::before {
+                animation: none;
+            }
+
+            .expand-icon,
+            .expandable-content {
+                transition: none;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 3rem;
+            }
+            
+            .page-header p {
+                font-size: 1.2rem;
+            }
+            
+            .services-content {
+                padding: 60px 20px;
+            }
+
+            .services-list {
+                gap: 32px;
+            }
+
+            .service-card {
+                padding: 32px 24px;
+            }
+
+            .service-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .service-title {
+                font-size: 1.6rem;
+            }
+            
+            .cta-section {
+                margin: 60px 0 0;
+                padding: 60px 30px;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo relay-logo-link">
+                    <div class="relay-logo-container">
+                        <svg class="relay-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <title>Relay Labs</title>
+                            <path class="infinity-loop" 
+                                  d="M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z"/>
+                            <circle class="node-glow glow-1" cx="64" cy="128" r="14"/>
+                            <circle class="node-glow glow-2" cx="164" cy="92" r="14"/>
+                            <circle class="node-glow glow-3" cx="164" cy="164" r="14"/>
+                            <circle class="connection-node node-1" cx="64" cy="128" r="10"/>
+                            <circle class="connection-node node-2" cx="164" cy="92" r="10"/>
+                            <circle class="connection-node node-3" cx="164" cy="164" r="10"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Relay Labs</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link active">Services</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="https://app.poweredbyrelay.com/" class="nav-link sign-in-btn" target="_blank">Sign In</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p>Comprehensive AI automation solutions designed to streamline your operations and accelerate business growth</p>
+            </div>
+        </section>
+
+        <section class="services-content">
+            <div class="container">
+                <div class="services-list">
+                    
+                    <!-- AI Phone Assistant -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div class="service-title-section">
+                                <h2 class="service-title">AI Phone Assistant</h2>
+                                <div class="service-subtitle">24/7 Intelligent Call Handling</div>
+                                <p class="service-description">Never miss another opportunity. Your AI answers every call with natural conversation, qualifies leads, and schedules appointments instantly.</p>
+                            </div>
+                        </div>
+
+                        <ul class="key-benefits">
+                            <li>Answers calls instantly, even when you're busy or closed</li>
+                            <li>Qualifies leads with smart questioning</li>
+                            <li>Books appointments directly into your calendar</li>
+                            <li>Routes priority calls to the right person</li>
+                        </ul>
+
+                        <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false">
+                            <span>View detailed features</span>
+                            <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+
+                        <div class="expandable-content">
+                            <div class="expandable-inner">
+                                <ul class="detailed-benefits">
+                                    <li>Natural language processing understands complex customer requests</li>
+                                    <li>Integrates with your existing phone system seamlessly</li>
+                                    <li>Customizable conversation flows for your industry</li>
+                                    <li>Real-time call transcription and logging</li>
+                                    <li>Escalation protocols for complex or urgent matters</li>
+                                    <li>Multi-language support for diverse customer base</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-divider"></div>
+
+                    <!-- Live Chat Bot -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                            </div>
+                            <div class="service-title-section">
+                                <h2 class="service-title">Live Chat Bot</h2>
+                                <div class="service-subtitle">Instant Website Engagement</div>
+                                <p class="service-description">Capture every website visitor with intelligent chat that feels human. Convert browsers into qualified leads automatically.</p>
+                            </div>
+                        </div>
+
+                        <ul class="key-benefits">
+                            <li>Engages visitors within seconds of landing</li>
+                            <li>Captures lead information through natural conversation</li>
+                            <li>Provides instant answers to common questions</li>
+                            <li>Hands off qualified prospects to your sales team</li>
+                        </ul>
+
+                        <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false">
+                            <span>View detailed features</span>
+                            <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+
+                        <div class="expandable-content">
+                            <div class="expandable-inner">
+                                <ul class="detailed-benefits">
+                                    <li>Works across your website, social media, and messaging platforms</li>
+                                    <li>Behavioral triggers based on visitor actions</li>
+                                    <li>Lead scoring and qualification automation</li>
+                                    <li>Seamless handoff to human agents when needed</li>
+                                    <li>Rich media support (images, videos, documents)</li>
+                                    <li>Analytics on visitor engagement and conversion rates</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-divider"></div>
+
+                    <!-- Appointment Booking -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke="currentColor">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                            </div>
+                            <div class="service-title-section">
+                                <h2 class="service-title">Smart Appointment Booking</h2>
+                                <div class="service-subtitle">Automated Scheduling That Never Sleeps</div>
+                                <p class="service-description">End the scheduling back-and-forth. Prospects book meetings directly while you sleep, with automatic confirmations and reminders.</p>
+                            </div>
+                        </div>
+
+                        <ul class="key-benefits">
+                            <li>Syncs with your calendar in real-time</li>
+                            <li>Prevents double-bookings automatically</li>
+                            <li>Sends confirmations and reminders</li>
+                            <li>Handles rescheduling without your involvement</li>
+                        </ul>
+
+                        <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false">
+                            <span>View detailed features</span>
+                            <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+
+                        <div class="expandable-content">
+                            <div class="expandable-inner">
+                                <ul class="detailed-benefits">
+                                    <li>Multiple calendar integrations (Google, Outlook, Apple)</li>
+                                    <li>Custom booking forms to collect pre-meeting information</li>
+                                    <li>Buffer time management between appointments</li>
+                                    <li>Time zone detection and conversion</li>
+                                    <li>Group booking and recurring appointment support</li>
+                                    <li>No-show tracking and follow-up automation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-divider"></div>
+
+                    <!-- Email Automation -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke="currentColor">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="service-title-section">
+                                <h2 class="service-title">Email Automation</h2>
+                                <div class="service-subtitle">Personalized Follow-Up Sequences</div>
+                                <p class="service-description">Nurture every lead with perfectly timed, personalized emails. Turn prospects into customers while you focus on closing deals.</p>
+                            </div>
+                        </div>
+
+                        <ul class="key-benefits">
+                            <li>Sends the right message at the perfect time</li>
+                            <li>Personalizes content based on prospect behavior</li>
+                            <li>Follows up with non-responsive leads</li>
+                            <li>Tracks engagement for optimization</li>
+                        </ul>
+
+                        <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false">
+                            <span>View detailed features</span>
+                            <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+
+                        <div class="expandable-content">
+                            <div class="expandable-inner">
+                                <ul class="detailed-benefits">
+                                    <li>Behavioral triggers based on website activity</li>
+                                    <li>A/B testing for optimal open and click rates</li>
+                                    <li>Dynamic content insertion for personalization</li>
+                                    <li>Drip campaigns for long-term nurturing</li>
+                                    <li>Advanced segmentation and tagging</li>
+                                    <li>Deliverability optimization and monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-divider"></div>
+
+                    <!-- CRM Integration -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke="currentColor">
+                                    <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                    <path d="m3 5 9 9 9-9"/>
+                                    <path d="m3 12 9 9 9-9"/>
+                                    <path d="m3 19 9 9 9-9"/>
+                                </svg>
+                            </div>
+                            <div class="service-title-section">
+                                <h2 class="service-title">CRM Integration</h2>
+                                <div class="service-subtitle">Seamless Data Synchronization</div>
+                                <p class="service-description">Keep your customer data perfectly organized. Every interaction automatically updates your CRM with complete conversation history.</p>
+                            </div>
+                        </div>
+
+                        <ul class="key-benefits">
+                            <li>Automatically creates and updates contact records</li>
+                            <li>Logs all interactions and conversation history</li>
+                            <li>Tracks lead sources and conversion paths</li>
+                            <li>Ensures your team has up-to-date information</li>
+                        </ul>
+
+                        <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false">
+                            <span>View detailed features</span>
+                            <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+
+                        <div class="expandable-content">
+                            <div class="expandable-inner">
+                                <ul class="detailed-benefits">
+                                    <li>Compatible with Salesforce, HubSpot, Pipedrive, and more</li>
+                                    <li>Real-time two-way data synchronization</li>
+                                    <li>Custom field mapping and data transformation</li>
+                                    <li>Duplicate detection and merge capabilities</li>
+                                    <li>Activity timeline and interaction history</li>
+                                    <li>Automated lead scoring and stage progression</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-divider"></div>
+
+                    <!-- Analytics & Reporting -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <div class="service-title-section">
+                                <h2 class="service-title">Analytics & Insights</h2>
+                                <div class="service-subtitle">Data-Driven Performance Tracking</div>
+                                <p class="service-description">See exactly how your automation performs. Get clear, actionable reports that help you optimize and grow your business.</p>
+                            </div>
+                        </div>
+
+                        <ul class="key-benefits">
+                            <li>Real-time dashboards with key metrics</li>
+                            <li>Lead quality scoring and conversion tracking</li>
+                            <li>Response time and satisfaction monitoring</li>
+                            <li>Actionable insights for optimization</li>
+                        </ul>
+
+                        <button class="expand-toggle" onclick="toggleExpand(this)" aria-expanded="false">
+                            <span>View detailed features</span>
+                            <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+
+                        <div class="expandable-content">
+                            <div class="expandable-inner">
+                                <ul class="detailed-benefits">
+                                    <li>Custom dashboard creation for different stakeholders</li>
+                                    <li>Automated weekly and monthly performance reports</li>
+                                    <li>ROI calculation and cost-per-lead tracking</li>
+                                    <li>Conversion funnel analysis and optimization</li>
+                                    <li>Comparative performance benchmarking</li>
+                                    <li>Export capabilities for external analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cta-section">
+                    <h2>Ready to Automate Your Business?</h2>
+                    <p>Let's discuss which services will have the biggest impact on your operations and growth.</p>
+                    <a href="get-started.html" class="cta-button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                        </svg>
+                        Get Started Today
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center; color: #a1a1aa;">
+                <p style="margin-bottom: 16px;">&copy; 2025 Relay Labs LLC &bull; New Jersey, USA</p>
+                <div style="margin-bottom: 16px;">
+                    <a href="legal/terms.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Terms of Service</a> |
+                    <a href="legal/privacy.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Privacy Policy</a> |
+                    <a href="legal/dpa.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Data Processing Addendum</a>
+                </div>
+                <div>
+                    Contact: <a href="mailto:privacy@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">privacy@poweredbyrelay.com</a> &bull;
+                    <a href="mailto:security@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">security@poweredbyrelay.com</a> &bull;
+                    <a href="mailto:abuse@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">abuse@poweredbyrelay.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Progressive disclosure functionality
+        function toggleExpand(button) {
+            const content = button.nextElementSibling;
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            
+            // Toggle expanded state
+            button.setAttribute('aria-expanded', !isExpanded);
+            button.classList.toggle('expanded');
+            content.classList.toggle('expanded');
+            
+            // Update button text
+            const span = button.querySelector('span');
+            span.textContent = isExpanded ? 'View detailed features' : 'Hide detailed features';
+        }
+
+        // Intersection Observer for scroll animations (enhanced)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Relay Labs</title>
+    <meta name="description" content="Relay Labs privacy policy explaining how we collect, use, and protect your personal information.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Legal page specific styles */
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.08), rgba(168, 85, 247, 0.03));
+            border-bottom: 1px solid rgba(124, 92, 255, 0.1);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            color: #a1a1aa;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .legal-content {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #0a0a0f 0%, #0f1018 50%, #0a0a0f 100%);
+        }
+        
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        /* Table of Contents */
+        .toc-card {
+            background: linear-gradient(145deg, rgba(18, 19, 32, 0.7), rgba(15, 16, 24, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 32px;
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 120px;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(124, 92, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(124, 92, 255, 0.1);
+        }
+        
+        .toc-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(124, 92, 255, 0.3);
+            position: relative;
+        }
+        
+        .toc-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #7c5cff, #a855f7);
+            border-radius: 1px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc-item {
+            margin-bottom: 8px;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 8px 16px;
+            color: #a1a1aa;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+        }
+        
+        .toc-link:hover, .toc-link.active {
+            color: #7c5cff;
+            background: rgba(124, 92, 255, 0.1);
+            border-left-color: #7c5cff;
+            transform: translateX(4px);
+        }
+        
+        /* Main content */
+        .legal-text {
+            background: linear-gradient(145deg, rgba(18, 19, 32, 0.7), rgba(15, 16, 24, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 60px 50px;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .legal-text:hover {
+            border-color: rgba(124, 92, 255, 0.2);
+        }
+        
+        .effective-date {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #7c5cff;
+            background: rgba(124, 92, 255, 0.1);
+            padding: 20px 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(124, 92, 255, 0.2);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-card {
+            margin-bottom: 50px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .section-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(124, 92, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(124, 92, 255, 0.05);
+        }
+        
+        .section-card:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-card h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 0 24px 0;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(124, 92, 255, 0.3);
+            position: relative;
+            line-height: 1.3;
+        }
+        
+        .section-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, #7c5cff, #a855f7);
+            border-radius: 1px;
+        }
+        
+        .section-card h3 {
+            color: #e4e4e7;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 32px 0 16px 0;
+            line-height: 1.4;
+        }
+        
+        .section-card p {
+            color: #d4d4d8;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+        
+        .section-card ul {
+            color: #d4d4d8;
+            margin: 24px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .section-card li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 16px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .section-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #7c5cff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: 0;
+        }
+        
+        .section-card strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        
+        /* Contact information styling */
+        .contact-info {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.1), rgba(168, 85, 247, 0.05));
+            border: 1px solid rgba(124, 92, 255, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            margin-top: 20px;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #e4e4e7;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .toc-card {
+                position: static;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .page-header p {
+                font-size: 1.1rem;
+            }
+            
+            .legal-content {
+                padding: 60px 0;
+            }
+            
+            .content-wrapper {
+                margin: 0 20px;
+            }
+            
+            .legal-text {
+                padding: 40px 30px;
+            }
+            
+            .section-card {
+                padding: 30px;
+            }
+            
+            .section-card h2 {
+                font-size: 1.5rem;
+            }
+            
+            .toc-card {
+                padding: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-card h2 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Focus styles for accessibility */
+        .toc-link:focus-visible {
+            outline: 2px solid #7c5cff;
+            outline-offset: 2px;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Scroll offset for anchors */
+        .section-card {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo relay-logo-link">
+                    <div class="relay-logo-container">
+                        <svg class="relay-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <title>Relay Labs</title>
+                            <path class="infinity-loop" 
+                                  d="M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z"/>
+                            <circle class="node-glow glow-1" cx="64" cy="128" r="14"/>
+                            <circle class="node-glow glow-2" cx="164" cy="92" r="14"/>
+                            <circle class="node-glow glow-3" cx="164" cy="164" r="14"/>
+                            <circle class="connection-node node-1" cx="64" cy="128" r="10"/>
+                            <circle class="connection-node node-2" cx="164" cy="92" r="10"/>
+                            <circle class="connection-node node-3" cx="164" cy="164" r="10"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Relay Labs</span>
+                </a>
+                <nav class="nav">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="../services.html" class="nav-link">Services</a>
+                    <a href="../pricing.html" class="nav-link">Pricing</a>
+                    <a href="../about.html" class="nav-link">About</a>
+                    <a href="../contact.html" class="nav-link">Contact</a>
+                    <a href="https://app.poweredbyrelay.com/" class="nav-link sign-in-btn" target="_blank">Sign In</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Privacy Policy</h1>
+                <p>How we collect, use, and protect your information with complete transparency</p>
+            </div>
+        </section>
+
+        <section class="legal-content">
+            <div class="container">
+                <div class="content-wrapper">
+                    <!-- Table of Contents -->
+                    <aside class="toc-card">
+                        <h2 class="toc-title">Contents</h2>
+                        <ul class="toc-list">
+                            <li class="toc-item"><a href="#scope" class="toc-link">Scope</a></li>
+                            <li class="toc-item"><a href="#information-collection" class="toc-link">Information We Collect</a></li>
+                            <li class="toc-item"><a href="#legal-bases" class="toc-link">Legal Bases (GDPR)</a></li>
+                            <li class="toc-item"><a href="#information-use" class="toc-link">How We Use Information</a></li>
+                            <li class="toc-item"><a href="#disclosure" class="toc-link">Disclosure of Information</a></li>
+                            <li class="toc-item"><a href="#data-retention" class="toc-link">Data Retention</a></li>
+                            <li class="toc-item"><a href="#international-transfers" class="toc-link">International Data Transfers</a></li>
+                            <li class="toc-item"><a href="#security" class="toc-link">Security Measures</a></li>
+                            <li class="toc-item"><a href="#data-rights" class="toc-link">Data Subject Rights</a></li>
+                            <li class="toc-item"><a href="#childrens-privacy" class="toc-link">Children's Privacy</a></li>
+                            <li class="toc-item"><a href="#dispute-resolution" class="toc-link">Dispute Resolution</a></li>
+                            <li class="toc-item"><a href="#policy-changes" class="toc-link">Policy Changes</a></li>
+                            <li class="toc-item"><a href="#contact" class="toc-link">Contact Information</a></li>
+                        </ul>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <div class="legal-text">
+                        <div class="effective-date">
+                            <strong>Effective Date:</strong> September 26, 2025
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 32px; margin-bottom: 40px;">
+                            <p style="margin: 0;">This Privacy Policy ("Policy") describes how Relay Labs LLC, a New Jersey limited liability company ("Relay Labs," "Company," "we," "our," or "us"), collects, uses, discloses, and safeguards personal information in connection with our Services. By using our Services, you acknowledge and agree to the terms of this Policy.</p>
+                        </div>
+                        
+                        <section id="scope" class="section-card">
+                            <h2>1. Scope</h2>
+                            <p>This Policy applies to personal information processed by Relay Labs through its software-as-a-service (SaaS) platform, AI automation consulting, telecommunications integrations, websites, and related offerings (collectively, the "Services"). This Policy applies to all users globally, including users located in jurisdictions with enhanced privacy rights such as the European Union, the United Kingdom, and California.</p>
+                        </section>
+                        
+                        <section id="information-collection" class="section-card">
+                            <h2>2. Information We Collect</h2>
+                            <p>We may collect the following categories of personal information:</p>
+                            
+                            <p><strong>Identifiers and Contact Information:</strong> name, business email, business phone number, and account credentials.</p>
+                            
+                            <p><strong>Billing and Transaction Data:</strong> billing details and payment information, processed through Stripe.</p>
+                            
+                            <p><strong>Communications Content and Logs:</strong> message content, call detail records, SMS logs, metadata, and usage records transmitted through Twilio or other providers.</p>
+                            
+                            <p><strong>Technical and Usage Data:</strong> device identifiers, browser type, operating system, IP address, location approximations, referral URLs, pages visited, features used, and time spent within the Services.</p>
+                            
+                            <p><strong>Cookies and Tracking Data:</strong> collected via cookies, pixels, and similar technologies for functionality, analytics, and security.</p>
+                            
+                            <p>We do not intentionally collect sensitive categories of personal information such as health data, biometric identifiers, or financial account numbers.</p>
+                        </section>
+                        
+                        <section id="legal-bases" class="section-card">
+                            <h2>3. Legal Bases for Processing (GDPR)</h2>
+                            <p>Where the General Data Protection Regulation (GDPR) applies, we process personal information under the following lawful bases:</p>
+                            <ul>
+                                <li><strong>Performance of Contract</strong> – to provide the Services and fulfill contractual obligations</li>
+                                <li><strong>Consent</strong> – where required, including for marketing communications and use of certain cookies</li>
+                                <li><strong>Legal Obligation</strong> – to comply with applicable laws, regulations, and lawful orders</li>
+                                <li><strong>Legitimate Interests</strong> – to operate, secure, and improve our Services, provided such interests are not overridden by individual rights</li>
+                            </ul>
+                        </section>
+                        
+                        <section id="information-use" class="section-card">
+                            <h2>4. How We Use Information</h2>
+                            <p>We use personal information to:</p>
+                            <ul>
+                                <li>Provide, operate, and improve the Services</li>
+                                <li>Authenticate users and manage accounts</li>
+                                <li>Process payments through Stripe</li>
+                                <li>Facilitate communications and telecommunications routing through Twilio</li>
+                                <li>Enable AI and automation processing through OpenAI and Google services</li>
+                                <li>Provide customer support and respond to inquiries</li>
+                                <li>Monitor and secure the Services against fraud, misuse, and unlawful activity</li>
+                                <li>Comply with legal obligations and enforce our Terms of Service</li>
+                            </ul>
+                        </section>
+                        
+                        <section id="disclosure" class="section-card">
+                            <h2>5. Disclosure of Information</h2>
+                            <p>We do not sell personal information. We disclose personal information only as follows:</p>
+                            
+                            <p><strong>Service Providers:</strong> To trusted third parties such as Twilio (telecom), Stripe (payments), Google (infrastructure and analytics), and OpenAI (AI processing) as necessary to deliver the Services.</p>
+                            
+                            <p><strong>Legal and Compliance:</strong> Where required by law, subpoena, or court order, or to protect our rights, property, or the safety of users.</p>
+                            
+                            <p><strong>Business Transactions:</strong> In connection with mergers, acquisitions, financing, or sale of company assets.</p>
+                        </section>
+                        
+                        <section id="data-retention" class="section-card">
+                            <h2>6. Data Retention</h2>
+                            <p>We retain personal information for as long as necessary to provide the Services, comply with legal obligations, resolve disputes, and enforce agreements. Where information is no longer required, we will delete or anonymize it consistent with our data retention policies.</p>
+                        </section>
+                        
+                        <section id="international-transfers" class="section-card">
+                            <h2>7. International Data Transfers</h2>
+                            <p>Personal information may be transferred to and processed in the United States and other jurisdictions that may not provide equivalent privacy protections. For transfers from the European Economic Area, the United Kingdom, or Switzerland, we rely on Standard Contractual Clauses (SCCs) approved by the European Commission, or other lawful transfer mechanisms.</p>
+                        </section>
+                        
+                        <section id="security" class="section-card">
+                            <h2>8. Security Measures</h2>
+                            <p>We implement reasonable and appropriate technical and organizational safeguards to protect personal information, including encryption, access controls, and monitoring systems. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+                        </section>
+                        
+                        <section id="data-rights" class="section-card">
+                            <h2>9. Data Subject Rights</h2>
+                            <p>We extend the following rights to all users, regardless of jurisdiction:</p>
+                            <ul>
+                                <li><strong>Access:</strong> the right to obtain confirmation of whether we hold personal information and request a copy</li>
+                                <li><strong>Correction:</strong> the right to request correction of inaccurate or incomplete information</li>
+                                <li><strong>Deletion:</strong> the right to request erasure of personal information, subject to legal obligations</li>
+                                <li><strong>Portability:</strong> the right to receive personal information in a structured, machine-readable format</li>
+                                <li><strong>Objection/Restriction:</strong> the right to object to certain processing or request restriction of processing</li>
+                                <li><strong>Opt-Out:</strong> the right to opt out of sale or sharing of personal information, including for targeted advertising (as defined under CCPA/CPRA)</li>
+                            </ul>
+                            <p>Requests may be submitted to contact@poweredbyrelay.com. We will respond within legally required timeframes.</p>
+                        </section>
+                        
+                        <section id="childrens-privacy" class="section-card">
+                            <h2>10. Children's Privacy</h2>
+                            <p>The Services are intended for business use only and are not directed to individuals under the age of eighteen (18). We do not knowingly collect personal information from minors. If we become aware of such collection, we will delete the information promptly.</p>
+                        </section>
+                        
+                        <section id="dispute-resolution" class="section-card">
+                            <h2>11. Dispute Resolution</h2>
+                            <p>Any disputes arising under this Policy shall be resolved through binding arbitration as set forth in the Terms of Service, including the waiver of class and representative actions.</p>
+                        </section>
+                        
+                        <section id="policy-changes" class="section-card">
+                            <h2>12. Changes to This Policy</h2>
+                            <p>We may update this Policy from time to time. Material changes will be communicated via email or through a prominent notice in the Services. Continued use after changes take effect constitutes acceptance of the revised Policy.</p>
+                        </section>
+                        
+                        <section id="contact" class="section-card">
+                            <h2>13. Contact Information</h2>
+                            <div class="contact-info">
+                                Relay Labs LLC<br>
+                                111 Town Square Place, Suite 1201<br>
+                                Jersey City, NJ 07310<br>
+                                Email: contact@poweredbyrelay.com
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center; color: #a1a1aa;">
+                <p style="margin-bottom: 16px;">© 2025 Relay Labs LLC. All rights reserved. | New Jersey, USA</p>
+                <div style="margin-bottom: 16px;">
+                    <a href="privacy.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Privacy Policy</a> |
+                    <a href="terms.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Terms of Service</a> |
+                    <a href="dpa.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Data Processing Addendum</a>
+                </div>
+                <div>
+                    <a href="mailto:privacy@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Privacy: privacy@poweredbyrelay.com</a> |
+                    <a href="mailto:security@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Security: security@poweredbyrelay.com</a> |
+                    <a href="mailto:abuse@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Abuse: abuse@poweredbyrelay.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling and TOC highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('.section-card');
+            
+            // Scroll reveal animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal');
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // TOC active link highlighting
+            function highlightTOC() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightTOC);
+            highlightTOC(); // Initial call
+        });
+    </script>
+</body>
+</html>

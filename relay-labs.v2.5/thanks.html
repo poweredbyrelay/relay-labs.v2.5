@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Relay Labs</title>
+    <meta name="description" content="Thank you for contacting Relay Labs. We'll be in touch soon to discuss your AI automation needs.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Thank you page specific styles */
+        .thanks-content {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0a0f 0%, #0f1018 50%, #121220 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .thanks-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(124, 92, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .thanks-message {
+            text-align: center;
+            max-width: 600px;
+            padding: 60px 40px;
+            background: linear-gradient(145deg, rgba(18, 19, 32, 0.8), rgba(15, 16, 24, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            box-shadow: 0 20px 40px rgba(124, 92, 255, 0.15);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .thanks-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.8), transparent);
+            border-radius: 32px 32px 0 0;
+        }
+        
+        .thanks-message h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #a855f7, #7c5cff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .thanks-message p {
+            font-size: 1.2rem;
+            color: #d4d4d8;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.3s forwards;
+        }
+        
+        .thanks-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.6s forwards;
+        }
+        
+        /* Logo animation styles */
+        .logo-animation {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+        }
+        
+        .logo-animation::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle, rgba(124, 92, 255, 0.1), transparent 60%);
+            border-radius: 50%;
+            animation: pulseGlow 3s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        .logo-animation::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            right: -40px;
+            bottom: -40px;
+            background: radial-gradient(circle, rgba(124, 92, 255, 0.05), transparent 70%);
+            border-radius: 50%;
+            animation: pulseGlow 3s ease-in-out infinite reverse;
+            z-index: -2;
+        }
+        
+        .animated-relay-logo {
+            width: 160px;
+            height: 160px;
+            cursor: pointer;
+            transform-origin: center;
+            animation: 
+                logoFloat 4s ease-in-out infinite,
+                logoRotate 12s linear infinite,
+                logoScale 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(124, 92, 255, 0.4));
+        }
+        
+        .animated-relay-logo .infinity-loop {
+            fill: none;
+            stroke: #6D4BFF;
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 2;
+            stroke-dasharray: 628;
+            stroke-dashoffset: 628;
+            animation: 
+                drawPath 3s ease-out forwards,
+                electricPulse 2s ease-in-out infinite 3s,
+                pathGlow 4s ease-in-out infinite 3s;
+        }
+        
+        .animated-relay-logo .connection-node {
+            fill: #6D4BFF;
+            transform-origin: center;
+            opacity: 0;
+            animation: 
+                nodeAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+                nodePulse 2s ease-in-out infinite,
+                nodeGlow 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 15px rgba(109, 75, 255, 0.6));
+        }
+        
+        .animated-relay-logo .connection-node.node-1 {
+            animation-delay: 2.5s, 4s, 4.2s;
+        }
+        
+        .animated-relay-logo .connection-node.node-2 {
+            animation-delay: 2.8s, 4.4s, 4.6s;
+        }
+        
+        .animated-relay-logo .connection-node.node-3 {
+            animation-delay: 3.1s, 4.8s, 5s;
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(124, 92, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .particle:nth-child(1) { top: 20%; left: 10%; animation: float1 4s infinite; }
+        .particle:nth-child(2) { top: 60%; left: 90%; animation: float2 5s infinite; }
+        .particle:nth-child(3) { top: 80%; left: 20%; animation: float3 3s infinite; }
+        .particle:nth-child(4) { top: 30%; left: 80%; animation: float1 6s infinite; }
+        .particle:nth-child(5) { top: 70%; left: 60%; animation: float2 4s infinite; }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(124, 92, 255, 0.3);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(124, 92, 255, 0.6);
+            }
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes logoRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes logoScale {
+            0%, 100% { transform: scale(1); }
+            33% { transform: scale(1.05); }
+            66% { transform: scale(0.95); }
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { 
+                opacity: 0.3; 
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.6; 
+                transform: scale(1.2);
+            }
+        }
+        
+        @keyframes drawPath {
+            from {
+                stroke-dashoffset: 628;
+                filter: drop-shadow(0 0 5px rgba(124, 92, 255, 0.3));
+            }
+            to {
+                stroke-dashoffset: 0;
+                filter: drop-shadow(0 0 20px rgba(124, 92, 255, 0.8));
+            }
+        }
+        
+        @keyframes electricPulse {
+            0%, 100% { 
+                stroke-width: 8;
+                filter: drop-shadow(0 0 20px rgba(124, 92, 255, 0.8));
+            }
+            50% { 
+                stroke-width: 12;
+                filter: drop-shadow(0 0 40px rgba(124, 92, 255, 1)) drop-shadow(0 0 80px rgba(124, 92, 255, 0.5));
+            }
+        }
+        
+        @keyframes pathGlow {
+            0%, 100% { 
+                stroke: #6D4BFF;
+            }
+            33% { 
+                stroke: #8B5CF6;
+            }
+            66% { 
+                stroke: #A855F7;
+            }
+        }
+        
+        @keyframes nodeAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.5) rotate(180deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(360deg);
+            }
+        }
+        
+        @keyframes nodePulse {
+            0%, 100% { 
+                transform: scale(1);
+                filter: drop-shadow(0 4px 15px rgba(109, 75, 255, 0.6));
+            }
+            50% { 
+                transform: scale(1.3);
+                filter: drop-shadow(0 6px 25px rgba(109, 75, 255, 1));
+            }
+        }
+        
+        @keyframes nodeGlow {
+            0%, 100% { 
+                fill: #6D4BFF;
+            }
+            33% { 
+                fill: #8B5CF6;
+            }
+            66% { 
+                fill: #A855F7;
+            }
+        }
+        
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(-180deg); }
+        }
+        
+        @keyframes float3 {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.2); }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .thanks-message {
+                margin: 20px;
+                padding: 40px 30px;
+            }
+            
+            .thanks-message h1 {
+                font-size: 2.5rem;
+            }
+            
+            .thanks-message p {
+                font-size: 1.1rem;
+            }
+            
+            .thanks-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo relay-logo-link">
+                    <div class="relay-logo-container">
+                        <svg class="relay-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <title>Relay Labs</title>
+                            <path class="infinity-loop" 
+                                  d="M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z"/>
+                            <circle class="node-glow glow-1" cx="64" cy="128" r="14"/>
+                            <circle class="node-glow glow-2" cx="164" cy="92" r="14"/>
+                            <circle class="node-glow glow-3" cx="164" cy="164" r="14"/>
+                            <circle class="connection-node node-1" cx="64" cy="128" r="10"/>
+                            <circle class="connection-node node-2" cx="164" cy="92" r="10"/>
+                            <circle class="connection-node node-3" cx="164" cy="164" r="10"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Relay Labs</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="https://app.poweredbyrelay.com/" class="nav-link sign-in-btn" target="_blank">Sign In</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="thanks-content">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            
+            <div class="container">
+                <div class="thanks-message">
+                    <div class="logo-animation">
+                        <svg class="animated-relay-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <title>Relay Labs - Thank You</title>
+                            <path class="infinity-loop" 
+                                  d="M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z"/>
+                            <circle class="connection-node node-1" cx="64" cy="128" r="10"/>
+                            <circle class="connection-node node-2" cx="164" cy="92" r="10"/>
+                            <circle class="connection-node node-3" cx="164" cy="164" r="10"/>
+                        </svg>
+                    </div>
+                    
+                    <h1>Thank You!</h1>
+                    <p>We've received your submission and will be in touch within 24 hours to discuss your AI automation needs.</p>
+                    
+                    <div class="thanks-buttons">
+                        <a href="index.html" class="btn btn-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9,22 9,12 15,12 15,22"/>
+                            </svg>
+                            Back to Home
+                        </a>
+                        <a href="services.html" class="btn btn-secondary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="m2 17 10 5 10-5"/>
+                                <path d="m2 12 10 5 10-5"/>
+                            </svg>
+                            View Our Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center; color: #a1a1aa;">
+                <p style="margin-bottom: 16px;">&copy; 2025 Relay Labs LLC &bull; New Jersey, USA</p>
+                <div style="margin-bottom: 16px;">
+                    <a href="legal/terms.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Terms of Service</a> |
+                    <a href="legal/privacy.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Privacy Policy</a> |
+                    <a href="legal/dpa.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Data Processing Addendum</a>
+                </div>
+                <div>
+                    Contact: <a href="mailto:privacy@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">privacy@poweredbyrelay.com</a> &bull;
+                    <a href="mailto:security@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">security@poweredbyrelay.com</a> &bull;
+                    <a href="mailto:abuse@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">abuse@poweredbyrelay.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

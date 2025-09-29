@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Relay Labs</title>
+    <meta name="description" content="Learn about Relay Labs' mission to transform business operations through intelligent AI automation.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Enhanced About Page Styles */
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a0a1f 25%, #0f0518 50%, #1a1124 75%, #0a0a0f 100%);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.12), rgba(168, 85, 247, 0.06));
+            border-bottom: 1px solid rgba(124, 92, 255, 0.15);
+            padding: 140px 0 90px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(124, 92, 255, 0.1), transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08), transparent 50%);
+            pointer-events: none;
+        }
+        
+        .page-header h1 {
+            font-size: 4.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #a855f7, #7c5cff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* Animated gradient underline */
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #7c5cff, #a855f7, transparent);
+            border-radius: 2px;
+            animation: underlineGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes underlineGlow {
+            0%, 100% { opacity: 0.6; transform: translateX(-50%) scaleX(1); }
+            50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+        }
+        
+        .mission-tagline {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 30px auto 0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-weight: 300;
+        }
+        
+        .about-content {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #0a0a0f 0%, #0f1018 30%, #121220 70%, #0a0a0f 100%);
+            position: relative;
+        }
+        
+        .about-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        /* Section Icons */
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.15), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(124, 92, 255, 0.3);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .section-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #a855f7;
+            fill: none;
+            stroke-width: 1.5;
+        }
+        
+        .about-section {
+            background: linear-gradient(145deg, rgba(18, 19, 32, 0.8), rgba(15, 16, 24, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 50px 45px;
+            position: relative;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+            max-width: 900px;
+        }
+
+        /* Alternating alignment */
+        .about-section:nth-child(odd) {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .about-section:nth-child(even) {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .about-section.reveal {
+            opacity: 1;
+            transform: translateY(0);
+            animation: slideInFade 0.8s ease-out forwards;
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .about-section:hover {
+            transform: translateY(-8px);
+            border-color: rgba(124, 92, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(124, 92, 255, 0.2);
+        }
+        
+        .about-section:hover::before {
+            opacity: 1;
+        }
+
+        .about-section:hover .section-icon {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.25), rgba(168, 85, 247, 0.15));
+            border-color: rgba(124, 92, 255, 0.5);
+            transform: scale(1.1);
+        }
+
+        .about-section:hover .section-icon svg {
+            stroke: #7c5cff;
+            filter: drop-shadow(0 0 12px rgba(124, 92, 255, 0.6));
+        }
+        
+        .about-section h2 {
+            color: #ffffff;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .about-section p {
+            color: #d4d4d8;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        
+        .about-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-section li {
+            color: #d4d4d8;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        .about-section li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #7c5cff;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .about-section strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Why Choose Relay Labs Highlight Strip */
+        .highlight-strip {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.1), rgba(168, 85, 247, 0.05));
+            border: 1px solid rgba(124, 92, 255, 0.2);
+            border-radius: 24px;
+            padding: 60px 40px;
+            margin: 100px auto;
+            max-width: 1000px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-strip::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.05), transparent 60%);
+            pointer-events: none;
+        }
+
+        .highlight-strip h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pillar {
+            text-align: center;
+        }
+
+        .pillar-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.2), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(124, 92, 255, 0.3);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .pillar-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #a855f7;
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .pillar:hover .pillar-icon {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.3), rgba(168, 85, 247, 0.2));
+            border-color: rgba(124, 92, 255, 0.5);
+            transform: scale(1.1);
+        }
+
+        .pillar h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .pillar p {
+            font-size: 1rem;
+            color: #a1a1aa;
+            line-height: 1.6;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: linear-gradient(145deg, rgba(124, 92, 255, 0.08), rgba(15, 16, 24, 0.95));
+            border: 1px solid rgba(124, 92, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(20px);
+        }
+
+        .contact-card h2 {
+            color: #a855f7;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(124, 92, 255, 0.05);
+            border: 1px solid rgba(124, 92, 255, 0.15);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(124, 92, 255, 0.1);
+            border-color: rgba(124, 92, 255, 0.3);
+        }
+
+        .contact-item svg {
+            width: 20px;
+            height: 20px;
+            stroke: #7c5cff;
+            flex-shrink: 0;
+        }
+
+        .contact-item span, .contact-item a {
+            color: #d4d4d8;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #7c5cff;
+        }
+        
+        /* Floating elements with varied sizes */
+        .floating-element {
+            position: absolute;
+            background: rgba(124, 92, 255, 0.4);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 8px;
+            height: 8px;
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+            opacity: 0.6;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 6px;
+            height: 6px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+            opacity: 0.8;
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 10px;
+            height: 10px;
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+            opacity: 0.4;
+        }
+
+        .floating-element:nth-child(4) {
+            width: 4px;
+            height: 4px;
+            top: 80%;
+            right: 30%;
+            animation-delay: 6s;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) scale(1); 
+                opacity: var(--start-opacity, 0.6); 
+            }
+            50% { 
+                transform: translateY(-25px) scale(1.3); 
+                opacity: 1; 
+            }
+        }
+
+        @keyframes slideInFade {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 3.2rem;
+            }
+            
+            .mission-tagline {
+                font-size: 1.3rem;
+            }
+            
+            .about-content {
+                padding: 80px 20px;
+            }
+            
+            .about-section {
+                padding: 40px 30px;
+                margin: 0 !important;
+                max-width: 100% !important;
+            }
+            
+            .about-section h2 {
+                font-size: 2rem;
+            }
+            
+            .about-section p,
+            .about-section li {
+                font-size: 1rem;
+            }
+
+            .highlight-strip {
+                padding: 40px 30px;
+                margin: 60px auto;
+            }
+
+            .pillars {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-info {
+                gap: 15px;
+            }
+
+            .floating-element {
+                display: none;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .floating-element,
+            .page-header h1::after {
+                animation: none;
+            }
+            
+            .about-section {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+
+            .about-section.reveal {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo relay-logo-link">
+                    <div class="relay-logo-container">
+                        <svg class="relay-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <title>Relay Labs</title>
+                            <path class="infinity-loop" 
+                                  d="M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z"/>
+                            <circle class="node-glow glow-1" cx="64" cy="128" r="14"/>
+                            <circle class="node-glow glow-2" cx="164" cy="92" r="14"/>
+                            <circle class="node-glow glow-3" cx="164" cy="164" r="14"/>
+                            <circle class="connection-node node-1" cx="64" cy="128" r="10"/>
+                            <circle class="connection-node node-2" cx="164" cy="92" r="10"/>
+                            <circle class="connection-node node-3" cx="164" cy="164" r="10"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Relay Labs</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="https://app.poweredbyrelay.com/" class="nav-link sign-in-btn" target="_blank">Sign In</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>About Relay Labs</h1>
+                <p class="mission-tagline">Streamlining operations and automating growth for modern businesses. We eliminate inefficiency and give companies leverage through intelligent automation.</p>
+            </div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </section>
+
+        <section class="about-content">
+            <div class="container">
+                <div class="about-grid">
+                    
+                    <!-- Who We Are -->
+                    <div class="about-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h2>Who We Are</h2>
+                        <p>Relay Labs is a consulting and SaaS solutions company built to streamline operations and automate growth for modern businesses. Our systems eliminate inefficiency, connect workflows, and give companies leverage through automation that scales with your ambitions.</p>
+                    </div>
+
+                    <!-- Our Story -->
+                    <div class="about-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h2>Our Story</h2>
+                        <p>Founded by two brothers, Relay Labs started with a simple goal: create tools that make running a business less complicated. What began as a shared project quickly grew into a company serving clients who value speed, efficiency, and clarity in their operations.</p>
+                    </div>
+
+                    <!-- Why Choose Relay Labs -->
+                    <div class="highlight-strip">
+                        <h3>Why Choose Relay Labs</h3>
+                        <div class="pillars">
+                            <div class="pillar">
+                                <div class="pillar-icon">
+                                    <svg viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <h4>Efficiency</h4>
+                                <p>Streamlined processes that eliminate bottlenecks and reduce manual overhead</p>
+                            </div>
+                            <div class="pillar">
+                                <div class="pillar-icon">
+                                    <svg viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <h4>Transparency</h4>
+                                <p>Clear data and honest reporting that shows exactly how your automation performs</p>
+                            </div>
+                            <div class="pillar">
+                                <div class="pillar-icon">
+                                    <svg viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
+                                    </svg>
+                                </div>
+                                <h4>Scalability</h4>
+                                <p>Systems designed to grow with your business without adding complexity</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- What We Do -->
+                    <div class="about-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h2>What We Do</h2>
+                        <p>We integrate AI-driven automation with communication, lead management, and client engagement tools. Our platform is designed to give small and mid-sized businesses the same level of operational leverage that larger organizations rely on, without the enterprise complexity.</p>
+                    </div>
+
+                    <!-- Our Approach -->
+                    <div class="about-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                            </svg>
+                        </div>
+                        <h2>Our Approach</h2>
+                        <ul>
+                            <li><strong>Practical Consulting:</strong> We combine real-world business insight with scalable SaaS solutions</li>
+                            <li><strong>Measurable Outcomes:</strong> Every service focuses on reducing overhead and speeding response times</li>
+                            <li><strong>Clear Data:</strong> Transparent reporting that shows exactly how your automation is performing</li>
+                            <li><strong>Seamless Integration:</strong> Works with your existing tools and processes</li>
+                        </ul>
+                    </div>
+
+                    <!-- Our Commitment -->
+                    <div class="about-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <h2>Our Commitment</h2>
+                        <p>We keep it direct: no inflated promises, no unnecessary complexity. Just systems that work, support that responds, and solutions that grow with our clients. When you partner with Relay Labs, you get automation that actually makes your business easier to run.</p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="about-section contact-card">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h2>Contact</h2>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <svg viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                                <span>Relay Labs LLC</span>
+                            </div>
+                            <div class="contact-item">
+                                <svg viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <span>111 Town Square Place, Suite 1201<br>Jersey City, NJ 07310</span>
+                            </div>
+                            <div class="contact-item">
+                                <svg viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                                <a href="mailto:contact@poweredbyrelay.com">contact@poweredbyrelay.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center; color: #a1a1aa;">
+                <p style="margin-bottom: 16px;">© 2025 Relay Labs LLC. All rights reserved. | New Jersey, USA</p>
+                <div style="margin-bottom: 16px;">
+                    <a href="legal/privacy.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Privacy Policy</a> |
+                    <a href="legal/terms.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Terms of Service</a> |
+                    <a href="legal/dpa.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Data Processing Addendum</a>
+                </div>
+                <div>
+                    <a href="mailto:privacy@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Privacy: privacy@poweredbyrelay.com</a> |
+                    <a href="mailto:security@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Security: security@poweredbyrelay.com</a> |
+                    <a href="mailto:abuse@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Abuse: abuse@poweredbyrelay.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll-reveal animation
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all about sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.about-section');
+            sections.forEach((section, index) => {
+                // Add staggered delay
+                section.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(section);
+            });
+        });
+    </script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

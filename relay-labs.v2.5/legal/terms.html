@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Relay Labs</title>
+    <meta name="description" content="Relay Labs terms of service outlining the conditions for using our AI automation services.">
+    <link rel="icon" type="image/svg+xml" href="../data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Legal page specific styles */
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.08), rgba(168, 85, 247, 0.03));
+            border-bottom: 1px solid rgba(124, 92, 255, 0.1);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-header p {
+            font-size: 1.3rem;
+            color: #a1a1aa;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .legal-content {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #0a0a0f 0%, #0f1018 50%, #0a0a0f 100%);
+        }
+        
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        /* Table of Contents */
+        .toc-card {
+            background: linear-gradient(145deg, rgba(18, 19, 32, 0.7), rgba(15, 16, 24, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 32px;
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 120px;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(124, 92, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(124, 92, 255, 0.1);
+        }
+        
+        .toc-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(124, 92, 255, 0.3);
+            position: relative;
+        }
+        
+        .toc-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #7c5cff, #a855f7);
+            border-radius: 1px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc-item {
+            margin-bottom: 8px;
+        }
+        
+        .toc-link {
+            display: block;
+            padding: 8px 16px;
+            color: #a1a1aa;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            border-left: 3px solid transparent;
+        }
+        
+        .toc-link:hover, .toc-link.active {
+            color: #7c5cff;
+            background: rgba(124, 92, 255, 0.1);
+            border-left-color: #7c5cff;
+            transform: translateX(4px);
+        }
+        
+        /* Main content */
+        .legal-text {
+            background: linear-gradient(145deg, rgba(18, 19, 32, 0.7), rgba(15, 16, 24, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 60px 50px;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .legal-text:hover {
+            border-color: rgba(124, 92, 255, 0.2);
+        }
+        
+        .effective-date {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #7c5cff;
+            background: rgba(124, 92, 255, 0.1);
+            padding: 20px 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(124, 92, 255, 0.2);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-card {
+            margin-bottom: 50px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .section-card.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(124, 92, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(124, 92, 255, 0.05);
+        }
+        
+        .section-card:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-card h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 0 24px 0;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(124, 92, 255, 0.3);
+            position: relative;
+            line-height: 1.3;
+        }
+        
+        .section-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, #7c5cff, #a855f7);
+            border-radius: 1px;
+        }
+        
+        .section-card h3 {
+            color: #e4e4e7;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 32px 0 16px 0;
+            line-height: 1.4;
+        }
+        
+        .section-card p {
+            color: #d4d4d8;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+        
+        .section-card ul {
+            color: #d4d4d8;
+            margin: 24px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .section-card li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 16px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .section-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #7c5cff;
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: 0;
+        }
+        
+        .section-card strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+        
+        /* Contact information styling */
+        .contact-info {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.1), rgba(168, 85, 247, 0.05));
+            border: 1px solid rgba(124, 92, 255, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            margin-top: 20px;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #e4e4e7;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .toc-card {
+                position: static;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0 60px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .page-header p {
+                font-size: 1.1rem;
+            }
+            
+            .legal-content {
+                padding: 60px 0;
+            }
+            
+            .content-wrapper {
+                margin: 0 20px;
+            }
+            
+            .legal-text {
+                padding: 40px 30px;
+            }
+            
+            .section-card {
+                padding: 30px;
+            }
+            
+            .section-card h2 {
+                font-size: 1.5rem;
+            }
+            
+            .toc-card {
+                padding: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-card h2 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Focus styles for accessibility */
+        .toc-link:focus-visible {
+            outline: 2px solid #7c5cff;
+            outline-offset: 2px;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Scroll offset for anchors */
+        .section-card {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo relay-logo-link">
+                    <div class="relay-logo-container">
+                        <svg class="relay-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <title>Relay Labs</title>
+                            <path class="infinity-loop" 
+                                  d="M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z"/>
+                            <circle class="node-glow glow-1" cx="64" cy="128" r="14"/>
+                            <circle class="node-glow glow-2" cx="164" cy="92" r="14"/>
+                            <circle class="node-glow glow-3" cx="164" cy="164" r="14"/>
+                            <circle class="connection-node node-1" cx="64" cy="128" r="10"/>
+                            <circle class="connection-node node-2" cx="164" cy="92" r="10"/>
+                            <circle class="connection-node node-3" cx="164" cy="164" r="10"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Relay Labs</span>
+                </a>
+                <nav class="nav">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="../services.html" class="nav-link">Services</a>
+                    <a href="../pricing.html" class="nav-link">Pricing</a>
+                    <a href="../about.html" class="nav-link">About</a>
+                    <a href="../contact.html" class="nav-link">Contact</a>
+                    <a href="https://app.poweredbyrelay.com/" class="nav-link sign-in-btn" target="_blank">Sign In</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Terms of Service</h1>
+                <p>Clear terms and conditions for using Relay Labs services</p>
+            </div>
+        </section>
+
+        <section class="legal-content">
+            <div class="container">
+                <div class="content-wrapper">
+                    <!-- Table of Contents -->
+                    <aside class="toc-card">
+                        <h2 class="toc-title">Contents</h2>
+                        <ul class="toc-list">
+                            <li class="toc-item"><a href="#definitions" class="toc-link">Definitions</a></li>
+                            <li class="toc-item"><a href="#eligibility" class="toc-link">Eligibility & Business Use</a></li>
+                            <li class="toc-item"><a href="#services" class="toc-link">Services & License</a></li>
+                            <li class="toc-item"><a href="#payment" class="toc-link">Fees and Payment</a></li>
+                            <li class="toc-item"><a href="#acceptable-use" class="toc-link">Acceptable Use</a></li>
+                            <li class="toc-item"><a href="#third-party" class="toc-link">Third-Party Providers</a></li>
+                            <li class="toc-item"><a href="#data-handling" class="toc-link">Data Handling</a></li>
+                            <li class="toc-item"><a href="#termination" class="toc-link">Termination</a></li>
+                            <li class="toc-item"><a href="#intellectual-property" class="toc-link">Intellectual Property</a></li>
+                            <li class="toc-item"><a href="#warranties" class="toc-link">Warranties</a></li>
+                            <li class="toc-item"><a href="#indemnification" class="toc-link">Indemnification</a></li>
+                            <li class="toc-item"><a href="#liability" class="toc-link">Limitation of Liability</a></li>
+                            <li class="toc-item"><a href="#dispute-resolution" class="toc-link">Dispute Resolution</a></li>
+                            <li class="toc-item"><a href="#miscellaneous" class="toc-link">Miscellaneous</a></li>
+                            <li class="toc-item"><a href="#contact" class="toc-link">Contact Information</a></li>
+                        </ul>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <div class="legal-text">
+                        <div class="effective-date">
+                            <strong>Effective Date:</strong> September 26, 2026
+                        </div>
+                        
+                        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 32px; margin-bottom: 40px;">
+                            <p style="margin: 0;">These Terms of Service (the "Agreement") govern the access and use of the Services provided by Relay Labs LLC, a New Jersey limited liability company ("Relay Labs," "Company," "we," "our," or "us"), by any customer or end user ("Customer," "you," or "your"). By executing an Order Form, subscribing to, or otherwise using the Services, you agree to be bound by this Agreement.</p>
+                        </div>
+                        
+                        <section id="definitions" class="section-card">
+                            <h2>1. Definitions</h2>
+                            <p><strong>1.1</strong> "Services" means Company's proprietary Software-as-a-Service (SaaS) platform and related AI automation consulting and implementation services.</p>
+                            <p><strong>1.2</strong> "Customer Data" means all data, content, and information submitted, transmitted, or processed through the Services by Customer, including personal data of Customer's end users.</p>
+                            <p><strong>1.3</strong> "Order Form" means any ordering document or online sign-up specifying the Services purchased, subscription term, and fees.</p>
+                            <p><strong>1.4</strong> "Third-Party Providers" means providers of telecommunications, payment processing, APIs, hosting, or other external services integrated into or relied upon by the Services, including but not limited to Twilio, Stripe, Google, and OpenAI.</p>
+                        </section>
+                        
+                        <section id="eligibility" class="section-card">
+                            <h2>2. Eligibility and Business Use</h2>
+                            <p><strong>2.1</strong> The Services are offered solely for business-to-business (B2B) use. By entering into this Agreement, Customer represents that it is a business entity and not an individual consumer.</p>
+                            <p><strong>2.2</strong> Customer represents that it has full power and authority to enter into this Agreement and that its use of the Services will comply with all applicable laws.</p>
+                        </section>
+                        
+                        <section id="services" class="section-card">
+                            <h2>3. Services and License</h2>
+                            <p><strong>3.1 License Grant.</strong> Subject to Customer's compliance with this Agreement, Relay Labs grants Customer a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Services solely for Customer's internal business operations.</p>
+                            <p><strong>3.2 Restrictions.</strong> Customer shall not:</p>
+                            <ul>
+                                <li>Copy, modify, or create derivative works of the Services</li>
+                                <li>Reverse engineer, decompile, or disassemble the Services</li>
+                                <li>Resell, rent, or lease the Services</li>
+                                <li>Use the Services for unlawful or high-risk purposes, including emergency services</li>
+                            </ul>
+                        </section>
+                        
+                        <section id="payment" class="section-card">
+                            <h2>4. Fees and Payment</h2>
+                            <p><strong>4.1 Fees.</strong> Customer agrees to pay all fees set forth in the applicable Order Form, including setup fees and recurring subscription fees. All fees are due in U.S. dollars.</p>
+                            <p><strong>4.2 Auto-Renewal.</strong> Subscriptions automatically renew for successive monthly terms unless canceled prior to renewal.</p>
+                            <p><strong>4.3 No Refunds.</strong> All payments are non-refundable. Customers are encouraged to request a demonstration before subscribing.</p>
+                            <p><strong>4.4 Payment Processing.</strong> Fees are processed through Stripe. Relay Labs does not store credit card details. Customer authorizes recurring charges until cancellation.</p>
+                        </section>
+                        
+                        <section id="acceptable-use" class="section-card">
+                            <h2>5. Acceptable Use and Telecommunications Compliance</h2>
+                            <p><strong>5.1 Lawful Use Only.</strong> Customer shall use the Services only in compliance with applicable law.</p>
+                            <p><strong>5.2 Telecom Compliance.</strong> Customer is solely responsible for compliance with all telecommunications and data regulations, including but not limited to the Telephone Consumer Protection Act (TCPA), CTIA guidelines, CAN-SPAM Act, GDPR, CCPA, and equivalent foreign laws.</p>
+                            <p><strong>5.3 Consent Obligations.</strong> Customer represents and warrants that it has obtained all legally required consents from recipients before sending any communication using the Services.</p>
+                            <p><strong>5.4 Prohibited Uses.</strong> Customer shall not use the Services to send unsolicited messages, spam, fraudulent, abusive, or harassing communications, or in violation of carrier rules.</p>
+                        </section>
+                        
+                        <section id="third-party" class="section-card">
+                            <h2>6. Third-Party Providers</h2>
+                            <p><strong>6.1</strong> The Services rely on Third-Party Providers including Twilio, Stripe, and others. Relay Labs does not guarantee uninterrupted or error-free operation of such providers.</p>
+                            <p><strong>6.2</strong> Customer's use of the Services must comply with the acceptable use policies of all relevant Third-Party Providers.</p>
+                            <p><strong>6.3</strong> Relay Labs disclaims liability for outages, delays, delivery failures, or damages caused by Third-Party Providers.</p>
+                        </section>
+                        
+                        <section id="data-handling" class="section-card">
+                            <h2>7. Data Handling and Privacy</h2>
+                            <p><strong>7.1 Customer Data.</strong> Customer retains all rights in Customer Data. By submitting Customer Data, Customer grants Relay Labs a limited license to process and use such data solely to provide the Services.</p>
+                            <p><strong>7.2 Data Processing.</strong> To the extent Relay Labs processes personal data on Customer's behalf, the parties shall comply with the Data Processing Addendum (DPA) available at [link to be inserted].</p>
+                            <p><strong>7.3 Privacy Policy.</strong> Use of the Services is subject to Relay Labs' Privacy Policy, which is incorporated by reference.</p>
+                        </section>
+                        
+                        <section id="termination" class="section-card">
+                            <h2>8. Termination and Suspension</h2>
+                            <p><strong>8.1 By Customer.</strong> Customer may terminate its subscription at the end of any billing cycle.</p>
+                            <p><strong>8.2 By Relay Labs for Cause.</strong> Relay Labs may suspend or terminate Services immediately, without refund, if Customer breaches this Agreement, violates law, or engages in conduct that exposes Relay Labs to liability.</p>
+                            <p><strong>8.3 For Convenience.</strong> Relay Labs may terminate this Agreement for convenience upon thirty (30) days' written notice.</p>
+                            <p><strong>8.4 Effect of Termination.</strong> Upon termination, all rights granted under this Agreement cease and Relay Labs may delete Customer Data per its data retention policy.</p>
+                        </section>
+                        
+                        <section id="intellectual-property" class="section-card">
+                            <h2>9. Intellectual Property</h2>
+                            <p><strong>9.1</strong> All rights, title, and interest in the Services, including software, trademarks, and related materials, remain exclusively with Relay Labs and its licensors.</p>
+                            <p><strong>9.2</strong> Except for the limited license granted in Section 3, no rights are transferred to Customer.</p>
+                        </section>
+                        
+                        <section id="warranties" class="section-card">
+                            <h2>10. Representations and Warranties</h2>
+                            <p><strong>10.1 Mutual.</strong> Each party represents that it has the authority to enter into this Agreement.</p>
+                            <p><strong>10.2 Customer.</strong> Customer represents and warrants that:</p>
+                            <ul>
+                                <li>It will comply with all applicable laws and regulations</li>
+                                <li>It has obtained valid consent from recipients of communications sent via the Services</li>
+                                <li>Its use will not infringe on third-party rights</li>
+                            </ul>
+                            <p><strong>10.3 Disclaimer.</strong> Except as expressly stated, the Services are provided "as is" without warranties of any kind, including merchantability, fitness for a particular purpose, or non-infringement.</p>
+                        </section>
+                        
+                        <section id="indemnification" class="section-card">
+                            <h2>11. Indemnification</h2>
+                            <p>Customer shall indemnify, defend, and hold harmless Relay Labs, its officers, directors, employees, and affiliates against any claims, fines, penalties, damages, or expenses (including reasonable attorneys' fees) arising out of:</p>
+                            <ul>
+                                <li>Customer's use of the Services</li>
+                                <li>Customer's violation of this Agreement</li>
+                                <li>Customer's failure to comply with telecom, data, or privacy laws</li>
+                                <li>Any communications sent by or on behalf of Customer</li>
+                            </ul>
+                            <p>This includes indemnification for any carrier fines or penalties related to Customer's non-compliant use.</p>
+                        </section>
+                        
+                        <section id="liability" class="section-card">
+                            <h2>12. Limitation of Liability</h2>
+                            <p><strong>12.1 Exclusion of Damages.</strong> In no event shall Relay Labs be liable for indirect, incidental, special, consequential, punitive, or exemplary damages, including lost profits, revenue, goodwill, or data.</p>
+                            <p><strong>12.2 Liability Cap.</strong> Relay Labs' aggregate liability shall not exceed the total fees paid by Customer in the twelve (12) months preceding the claim.</p>
+                        </section>
+                        
+                        <section id="dispute-resolution" class="section-card">
+                            <h2>13. Arbitration and Dispute Resolution</h2>
+                            <p><strong>13.1 Binding Arbitration.</strong> Any dispute arising from this Agreement shall be resolved by binding arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules.</p>
+                            <p><strong>13.2 Class Action Waiver.</strong> Customer waives the right to participate in any class, consolidated, or representative action against Relay Labs.</p>
+                            <p><strong>13.3 Venue.</strong> The arbitration shall take place in New Jersey, unless otherwise agreed.</p>
+                        </section>
+                        
+                        <section id="force-majeure" class="section-card">
+                            <h2>14. Force Majeure</h2>
+                            <p>Relay Labs shall not be liable for delays or failures in performance caused by events beyond its reasonable control, including natural disasters, government actions, labor disputes, internet or carrier outages, or acts of terrorism.</p>
+                        </section>
+                        
+                        <section id="miscellaneous" class="section-card">
+                            <h2>15. Miscellaneous</h2>
+                            <p><strong>15.1 Entire Agreement.</strong> This Agreement, including the Privacy Policy and DPA, constitutes the entire agreement between the parties.</p>
+                            <p><strong>15.2 Amendments.</strong> Relay Labs may amend this Agreement upon notice. Continued use constitutes acceptance.</p>
+                            <p><strong>15.3 Assignment.</strong> Customer may not assign this Agreement without prior written consent. Relay Labs may assign without restriction.</p>
+                            <p><strong>15.4 Governing Law.</strong> This Agreement is governed by the laws of the State of New Jersey, excluding conflict of law principles.</p>
+                        </section>
+                        
+                        <section id="contact" class="section-card">
+                            <h2>16. Contact Information</h2>
+                            <div class="contact-info">
+                                Relay Labs LLC<br>
+                                111 Town Square Place, Suite 1201<br>
+                                Jersey City, NJ 07310<br>
+                                Email: contact@poweredbyrelay.com
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center; color: #a1a1aa;">
+                <p style="margin-bottom: 16px;">© 2025 Relay Labs LLC. All rights reserved. | New Jersey, USA</p>
+                <div style="margin-bottom: 16px;">
+                    <a href="privacy.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Privacy Policy</a> |
+                    <a href="terms.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Terms of Service</a> |
+                    <a href="dpa.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Data Processing Addendum</a>
+                </div>
+                <div>
+                    <a href="mailto:privacy@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Privacy: privacy@poweredbyrelay.com</a> |
+                    <a href="mailto:security@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Security: security@poweredbyrelay.com</a> |
+                    <a href="mailto:abuse@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Abuse: abuse@poweredbyrelay.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling and TOC highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('.section-card');
+            
+            // Scroll reveal animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal');
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // TOC active link highlighting
+            function highlightTOC() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightTOC);
+            highlightTOC(); // Initial call
+        });
+    </script>
+</body>
+</html>

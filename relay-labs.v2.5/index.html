@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relay Labs - Deploy AI that answers, routes, books, and closes</title>
+    <meta name="description" content="Deploy AI that answers, routes, books, and closes. Complete AI automation solutions for your business.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Enhanced Modern Background System */
+        body {
+            background: 
+                linear-gradient(135deg, #0a0a0f 0%, #1a0a1f 25%, #0f0518 50%, #1a1124 75%, #0a0a0f 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Base background layer with subtle gradient mesh */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(124, 92, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+            z-index: -4;
+            pointer-events: none;
+        }
+
+        /* Animated geometric grid background */
+        .geometric-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* Flowing abstract lines */
+        .flow-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .flow-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.4), transparent);
+            animation: flowMove 15s linear infinite;
+        }
+
+        .flow-line:nth-child(1) {
+            top: 20%;
+            width: 60%;
+            left: -30%;
+            animation-delay: 0s;
+            animation-duration: 20s;
+        }
+
+        .flow-line:nth-child(2) {
+            top: 45%;
+            width: 80%;
+            left: -40%;
+            animation-delay: 5s;
+            animation-duration: 25s;
+        }
+
+        .flow-line:nth-child(3) {
+            top: 70%;
+            width: 50%;
+            left: -25%;
+            animation-delay: 10s;
+            animation-duration: 18s;
+        }
+
+        /* Subtle particle system */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(124, 92, 255, 0.6);
+            border-radius: 50%;
+            animation: particleFloat 12s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 25%; left: 85%; animation-delay: 3s; }
+        .particle:nth-child(3) { top: 60%; left: 25%; animation-delay: 6s; }
+        .particle:nth-child(4) { top: 80%; left: 75%; animation-delay: 9s; }
+        .particle:nth-child(5) { top: 35%; left: 60%; animation-delay: 2s; }
+        .particle:nth-child(6) { top: 15%; left: 40%; animation-delay: 7s; }
+
+        /* Enhanced hero section with better layering */
+        .hero {
+            padding: 140px 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        /* Subtle tech pattern overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="techGrid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(124,92,255,0.08)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23techGrid)"/></svg>');
+            opacity: 0.7;
+            animation: techGridMove 30s linear infinite;
+            z-index: -1;
+        }
+
+        /* Floating holographic elements */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            right: 10%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(124, 92, 255, 0.1), transparent 70%);
+            border-radius: 50%;
+            animation: holoFloat 8s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 30%, #a855f7 70%, #7c3aed 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            animation: titleFloat 6s ease-in-out infinite;
+            text-shadow: 0 0 40px rgba(124, 92, 255, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 45px;
+            line-height: 1.6;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #7c5cff, #a855f7);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(124, 92, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #6d4eff, #9333ea);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 92, 255, 0.6);
+        }
+        
+        .btn-secondary {
+            background: rgba(124, 92, 255, 0.12);
+            color: #a855f7;
+            border: 2px solid rgba(124, 92, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(124, 92, 255, 0.2);
+            border-color: #7c5cff;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        
+        .feature-chips {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .chip {
+            background: linear-gradient(135deg, rgba(124, 92, 255, 0.15), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(124, 92, 255, 0.3);
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .chip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(124, 92, 255, 0.3);
+            border-color: rgba(124, 92, 255, 0.6);
+        }
+
+        /* Enhanced services section background */
+        .services-preview {
+            padding: 110px 0;
+            position: relative;
+            background: linear-gradient(180deg, 
+                rgba(10, 10, 15, 0.95) 0%, 
+                rgba(15, 16, 24, 0.98) 30%,
+                rgba(20, 18, 32, 0.99) 70%,
+                rgba(10, 10, 15, 0.95) 100%
+            );
+        }
+        
+        .services-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(124, 92, 255, 0.06), transparent 60%),
+                radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.04), transparent 60%);
+            pointer-events: none;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 70px;
+            background: linear-gradient(135deg, #ffffff, #a855f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-panel {
+            background: linear-gradient(145deg, 
+                rgba(18, 19, 32, 0.9), 
+                rgba(15, 16, 24, 0.95)
+            );
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px 35px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+        }
+        
+        .service-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .service-panel:hover {
+            transform: translateY(-10px);
+            border-color: rgba(124, 92, 255, 0.4);
+            box-shadow: 0 25px 60px rgba(124, 92, 255, 0.25);
+        }
+        
+        .service-panel:hover::before {
+            opacity: 1;
+        }
+
+        /* Enhanced CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, 
+                rgba(124, 92, 255, 0.1), 
+                rgba(168, 85, 247, 0.08), 
+                rgba(99, 102, 241, 0.06)
+            );
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(124, 92, 255, 0.12), transparent 70%);
+            animation: slowRotate 40s linear infinite;
+        }
+
+        /* Sign In Button Styling */
+        .sign-in-btn {
+            background: linear-gradient(135deg, #7c5cff, #a855f7);
+            color: #ffffff !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-left: 8px;
+        }
+
+        .sign-in-btn:hover {
+            background: linear-gradient(135deg, #6d4eff, #9333ea);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(124, 92, 255, 0.3);
+            color: #ffffff !important;
+        }
+
+        .sign-in-btn::after {
+            display: none !important; /* Remove the active underline for this button */
+        }
+
+        /* Animations */
+        @keyframes flowMove {
+            0% {
+                transform: translateX(-100%) translateY(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100vw) translateY(-20px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translateY(0px) scale(0.8);
+                opacity: 0.4;
+            }
+            50% { 
+                transform: translateY(-30px) scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        @keyframes techGridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-20px, -20px); }
+        }
+
+        @keyframes holoFloat {
+            0%, 100% { 
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.6;
+            }
+            33% { 
+                transform: translate(-20px, -30px) rotate(120deg);
+                opacity: 0.8;
+            }
+            66% { 
+                transform: translate(20px, -10px) rotate(240deg);
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+
+        @keyframes slowRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .flow-line {
+                height: 0.5px;
+            }
+            
+            .particle {
+                width: 1px;
+                height: 1px;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .hero::after {
+                width: 120px;
+                height: 120px;
+                right: 5%;
+            }
+
+            .sign-in-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .geometric-background {
+                opacity: 0.4;
+            }
+        }
+
+        /* Performance optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            .flow-line,
+            .particle,
+            .hero::before,
+            .hero::after,
+            .cta-section::before {
+                animation: none;
+            }
+            
+            .hero-title {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Enhanced Background Elements -->
+    <div class="geometric-background">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="hexagons" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+                    <polygon points="30,2 50,15 50,37 30,50 10,37 10,15" 
+                             fill="none" 
+                             stroke="rgba(124,92,255,0.1)" 
+                             stroke-width="0.5">
+                        <animate attributeName="stroke-opacity" 
+                                 values="0.1;0.3;0.1" 
+                                 dur="8s" 
+                                 repeatCount="indefinite"/>
+                    </polygon>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hexagons)"/>
+        </svg>
+    </div>
+
+    <div class="flow-lines">
+        <div class="flow-line"></div>
+        <div class="flow-line"></div>
+        <div class="flow-line"></div>
+    </div>
+
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo relay-logo-link">
+                    <div class="relay-logo-container">
+                        <svg class="relay-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <title>Relay Labs</title>
+                            <path class="infinity-loop" 
+                                  d="M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z"/>
+                            <circle class="node-glow glow-1" cx="64" cy="128" r="14"/>
+                            <circle class="node-glow glow-2" cx="164" cy="92" r="14"/>
+                            <circle class="node-glow glow-3" cx="164" cy="164" r="14"/>
+                            <circle class="connection-node node-1" cx="64" cy="128" r="10"/>
+                            <circle class="connection-node node-2" cx="164" cy="92" r="10"/>
+                            <circle class="connection-node node-3" cx="164" cy="164" r="10"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Relay Labs</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="https://app.poweredbyrelay.com/" class="nav-link sign-in-btn" target="_blank">Sign In</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Deploy AI that answers, routes, books, and closes</h1>
+                    <p class="hero-subtitle">Transform your business operations with intelligent AI automation that handles customer interactions, streamlines workflows, and drives conversions.</p>
+                    <div class="hero-buttons">
+                        <a href="get-started.html" class="btn btn-primary">Get Started</a>
+                        <a href="services.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="feature-chips">
+                        <span class="chip">24/7 AI Support</span>
+                        <span class="chip">Smart Routing</span>
+                        <span class="chip">Automated Booking</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-preview">
+            <div class="container">
+                <h2 class="section-title">Our Core Services</h2>
+                <div class="services-grid">
+                    <!-- Starter -->
+                    <div class="service-panel">
+                        <h3>Starter</h3>
+                        <p>AI receptionist for SMS. Lead capture, basic tagging, simple follow-ups, spam guard.</p>
+                        <div class="feature-tags">
+                            <span class="tag">SMS Only</span>
+                            <span class="tag">Lead Scoring</span>
+                            <span class="tag">Spam Guard</span>
+                            <span class="tag">Basic Tagging</span>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="tier-description">Best for solo and micro-teams</div>
+                            <span class="tier-badge starter">Starter</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Growth -->
+                    <div class="service-panel">
+                        <h3>Growth</h3>
+                        <p>Full voice + SMS AI receptionist with calendar sync, CRM integration, pipelines, and human approvals.</p>
+                        <div class="feature-tags">
+                            <span class="tag">Voice + SMS</span>
+                            <span class="tag">Calendar Sync</span>
+                            <span class="tag">CRM 2-way</span>
+                            <span class="tag">Pipelines</span>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="tier-description">Teams scaling beyond manual ops</div>
+                            <span class="tier-badge growth">Growth</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Scale -->
+                    <div class="service-panel">
+                        <h3>Scale</h3>
+                        <p>Multi-agent call center flows with omnichannel orchestration, advanced analytics, and custom automation.</p>
+                        <div class="feature-tags">
+                            <span class="tag">Multi-Agent</span>
+                            <span class="tag">Omnichannel</span>
+                            <span class="tag">Analytics</span>
+                            <span class="tag">Priority Routing</span>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="tier-description">For high-volume operations</div>
+                            <span class="tier-badge scale">Scale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Scale Your Operations?</h2>
+                    <p>Join hundreds of businesses already using AI to capture more leads, close more deals, and automate their success.</p>
+                    <div class="cta-buttons">
+                        <a href="get-started.html" class="btn btn-primary">Get Started</a>
+                        <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center; color: #a1a1aa;">
+                <p style="margin-bottom: 16px;">&copy; 2025 Relay Labs LLC &bull; New Jersey, USA</p>
+                <div style="margin-bottom: 16px;">
+                    <a href="legal/terms.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Terms of Service</a> |
+                    <a href="legal/privacy.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Privacy Policy</a> |
+                    <a href="legal/dpa.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Data Processing Addendum</a>
+                </div>
+                <div>
+                    Contact: <a href="mailto:privacy@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">privacy@poweredbyrelay.com</a> &bull;
+                    <a href="mailto:security@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">security@poweredbyrelay.com</a> &bull;
+                    <a href="mailto:abuse@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">abuse@poweredbyrelay.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

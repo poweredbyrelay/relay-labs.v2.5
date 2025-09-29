@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - Relay Labs</title>
+    <meta name="description" content="Get started with Relay Labs AI automation solutions. Transform your business with intelligent automation.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Purple form styling with subtle flair */
+        .form-group {
+            position: relative;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-group input:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            border-color: rgba(124, 92, 255, 0.5);
+            transform: translateY(-1px);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #7c5cff;
+            box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.2), 0 4px 12px rgba(124, 92, 255, 0.1);
+            outline: none;
+            transform: translateY(-2px);
+        }
+        
+        /* Subtle glow effect on focus */
+        .form-group input:focus::before,
+        .form-group select:focus::before,
+        .form-group textarea:focus::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: inherit;
+            background: linear-gradient(45deg, transparent, rgba(124, 92, 255, 0.1), transparent);
+            z-index: -1;
+        }
+        
+        /* Label animation */
+        .form-group label {
+            transition: color 0.3s ease;
+        }
+        
+        .form-group input:focus + label,
+        .form-group select:focus + label,
+        .form-group textarea:focus + label {
+            color: #7c5cff;
+        }
+        
+        /* Override browser validation colors */
+        .form-group input:valid,
+        .form-group select:valid,
+        .form-group textarea:valid {
+            border-color: rgba(124, 92, 255, 0.3);
+        }
+        
+        .form-group input:invalid,
+        .form-group select:invalid,
+        .form-group textarea:invalid {
+            border-color: rgba(124, 92, 255, 0.2);
+        }
+        
+        .form-group input:invalid:focus,
+        .form-group select:invalid:focus,
+        .form-group textarea:invalid:focus {
+            border-color: #7c5cff;
+            box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.2), 0 4px 12px rgba(124, 92, 255, 0.1);
+        }
+        
+        /* Button hover enhancement */
+        .btn-primary {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 92, 255, 0.3);
+        }
+        
+        /* Subtle form container enhancement */
+        .contact-form {
+            position: relative;
+        }
+        
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .contact-form:hover::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo relay-logo-link">
+                    <div class="relay-logo-container">
+                        <svg class="relay-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <title>Relay Labs</title>
+                            <path class="infinity-loop" 
+                                  d="M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z"/>
+                            <circle class="node-glow glow-1" cx="64" cy="128" r="14"/>
+                            <circle class="node-glow glow-2" cx="164" cy="92" r="14"/>
+                            <circle class="node-glow glow-3" cx="164" cy="164" r="14"/>
+                            <circle class="connection-node node-1" cx="64" cy="128" r="10"/>
+                            <circle class="connection-node node-2" cx="164" cy="92" r="10"/>
+                            <circle class="connection-node node-3" cx="164" cy="164" r="10"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Relay Labs</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <a href="https://app.poweredbyrelay.com/" class="nav-link sign-in-btn" target="_blank">Sign In</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Get Started</h1>
+                <p>Ready to transform your business with AI automation?</p>
+            </div>
+        </section>
+
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mvgwogrk" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" placeholder="John Smith" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company *</label>
+                            <input type="text" id="company" name="company" placeholder="Acme Corporation" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="plan">Select Plan</label>
+                            <select id="plan" name="plan">
+                                <option value="">Choose a plan...</option>
+                                <option value="Starter ($300/month)">Starter ($300/month)</option>
+                                <option value="Growth ($500/month)">Growth ($500/month)</option>
+                                <option value="Scale ($1000+/month)">Scale ($1000+/month)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="crm">Current CRM</label>
+                            <select id="crm" name="crm" onchange="handleCRMChange(this)">
+                                <option value="">Select your CRM...</option>
+                                <option value="Salesforce">Salesforce</option>
+                                <option value="HubSpot">HubSpot</option>
+                                <option value="Pipedrive">Pipedrive</option>
+                                <option value="Zoho">Zoho</option>
+                                <option value="Monday">Monday.com</option>
+                                <option value="None">No CRM</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <p class="form-note" style="font-style: italic; color: #a1a1aa; font-size: 0.85rem; margin-top: 5px;">
+                                Customer Relationship Management system - software that manages your contacts, leads, and sales pipeline
+                            </p>
+                        </div>
+                        
+                        <div class="form-group" id="other-crm-input" style="display: none;">
+                            <label for="other-crm">Please specify your CRM *</label>
+                            <input type="text" id="other-crm" name="other-crm" placeholder="Enter your CRM system name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Main Goals *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="goals" value="Automate phone calls" class="checkbox-input">
+                                    <span class="checkbox-text">Automate phone calls</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="goals" value="Improve lead capture" class="checkbox-input">
+                                    <span class="checkbox-text">Improve lead capture</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="goals" value="Streamline operations" class="checkbox-input">
+                                    <span class="checkbox-text">Streamline operations</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="goals" value="24/7 customer support" class="checkbox-input">
+                                    <span class="checkbox-text">24/7 customer support</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your business needs and how we can help automate your operations..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center; color: #a1a1aa;">
+                <p style="margin-bottom: 16px;">&copy; 2025 Relay Labs LLC &bull; New Jersey, USA</p>
+                <div style="margin-bottom: 16px;">
+                    <a href="legal/terms.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Terms of Service</a> |
+                    <a href="legal/privacy.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Privacy Policy</a> |
+                    <a href="legal/dpa.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Data Processing Addendum</a>
+                </div>
+                <div>
+                    Contact: <a href="mailto:privacy@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">privacy@poweredbyrelay.com</a> &bull;
+                    <a href="mailto:security@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">security@poweredbyrelay.com</a> &bull;
+                    <a href="mailto:abuse@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">abuse@poweredbyrelay.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to handle CRM dropdown change
+        function handleCRMChange(selectElement) {
+            const otherCrmInput = document.getElementById('other-crm-input');
+            const otherCrmField = document.getElementById('other-crm');
+            
+            if (selectElement.value === 'Other') {
+                otherCrmInput.style.display = 'block';
+                otherCrmField.required = true;
+            } else {
+                otherCrmInput.style.display = 'none';
+                otherCrmField.required = false;
+                otherCrmField.value = '';
+            }
+        }
+
+        // Function to automatically select plan based on URL parameter or sessionStorage
+        function autoSelectPlan() {
+            // First check URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            let selectedPlan = urlParams.get('plan');
+            
+            // If no URL parameter, check sessionStorage
+            if (!selectedPlan) {
+                selectedPlan = sessionStorage.getItem('selectedPlan');
+            }
+            
+            if (selectedPlan) {
+                const planSelect = document.getElementById('plan');
+                let planValue = '';
+                
+                // Map plan names to dropdown values
+                switch(selectedPlan.toLowerCase()) {
+                    case 'starter':
+                        planValue = 'Starter ($300/month)';
+                        break;
+                    case 'growth':
+                        planValue = 'Growth ($500/month)';
+                        break;
+                    case 'scale':
+                        planValue = 'Scale ($1000+/month)';
+                        break;
+                }
+                
+                if (planValue) {
+                    planSelect.value = planValue;
+                    // Clear the sessionStorage after using it
+                    sessionStorage.removeItem('selectedPlan');
+                }
+            }
+        }
+
+        // Run auto-select function when page loads
+        document.addEventListener('DOMContentLoaded', autoSelectPlan);
+    </script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

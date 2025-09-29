@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Relay Labs</title>
+    <meta name="description" content="Contact Relay Labs for general inquiries, partnerships, and support. Get in touch with our team.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%236D4BFF' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' d='M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z'/%3E%3Ccircle fill='%236D4BFF' cx='64' cy='128' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='92' r='10'/%3E%3Ccircle fill='%236D4BFF' cx='164' cy='164' r='10'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Subtle form enhancements */
+        .form-group {
+            position: relative;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-group input:hover,
+        .form-group textarea:hover {
+            border-color: rgba(124, 92, 255, 0.5);
+            transform: translateY(-1px);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #7c5cff;
+            box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.2), 0 4px 12px rgba(124, 92, 255, 0.1);
+            outline: 2px solid #7c5cff;
+            outline-offset: 2px;
+            transform: translateY(-2px);
+        }
+
+        /* Honeypot field - completely hidden */
+        .honeypot {
+            position: absolute !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+        
+        /* Enhanced button states */
+        .btn-primary {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 92, 255, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Simple loading state */
+        .btn-primary.loading {
+            opacity: 0.8;
+        }
+
+        /* Simple alert styling */
+        .alert {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .alert.show {
+            opacity: 1;
+        }
+
+        .alert.success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+
+        .alert.error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+        
+        /* Subtle form container enhancement */
+        .contact-form {
+            position: relative;
+        }
+        
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .contact-form:hover::before {
+            opacity: 1;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo relay-logo-link">
+                    <div class="relay-logo-container">
+                        <svg class="relay-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <title>Relay Labs</title>
+                            <path class="infinity-loop" 
+                                  d="M 64 128 C 64 80, 96 64, 128 96 C 160 128, 192 144, 192 128 C 192 112, 160 128, 128 160 C 96 192, 64 176, 64 128 Z"/>
+                            <circle class="node-glow glow-1" cx="64" cy="128" r="14"/>
+                            <circle class="node-glow glow-2" cx="164" cy="92" r="14"/>
+                            <circle class="node-glow glow-3" cx="164" cy="164" r="14"/>
+                            <circle class="connection-node node-1" cx="64" cy="128" r="10"/>
+                            <circle class="connection-node node-2" cx="164" cy="92" r="10"/>
+                            <circle class="connection-node node-3" cx="164" cy="164" r="10"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Relay Labs</span>
+                </a>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                    <a href="https://app.poweredbyrelay.com/" class="nav-link sign-in-btn" target="_blank">Sign In</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Have a question? Need support? Want to discuss a partnership? We'd love to hear from you.</p>
+            </div>
+        </section>
+
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mvgwogrk" method="POST">
+                        <input type="hidden" name="_subject" value="General Contact Form Submission">
+                        <!-- Honeypot field for spam protection -->
+                        <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+                        
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" placeholder="John Smith" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone (optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Send Message</button>
+
+                        <div id="alert" class="alert" role="alert"></div>
+                    </form>
+                    
+                    <div style="margin-top: 40px; text-align: center; padding: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                        <p style="color: #a1a1aa; margin-bottom: 16px;">Ready to get started with AI automation?</p>
+                        <a href="get-started.html" class="btn btn-secondary">Get Started Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="text-align: center; color: #a1a1aa;">
+                <p style="margin-bottom: 16px;">© 2025 Relay Labs LLC. All rights reserved. | New Jersey, USA</p>
+                <div style="margin-bottom: 16px;">
+                    <a href="legal/privacy.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Privacy Policy</a> |
+                    <a href="legal/terms.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Terms of Service</a> |
+                    <a href="legal/dpa.html" style="color: #7c5cff; text-decoration: none; margin: 0 8px;">Data Processing Addendum</a>
+                </div>
+                <div>
+                    <a href="mailto:privacy@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Privacy: privacy@poweredbyrelay.com</a> |
+                    <a href="mailto:security@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Security: security@poweredbyrelay.com</a> |
+                    <a href="mailto:abuse@poweredbyrelay.com" style="color: #a1a1aa; text-decoration: none; margin: 0 8px; font-size: 0.9rem;">Abuse: abuse@poweredbyrelay.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const alert = document.getElementById('alert');
+
+            function showAlert(message, type) {
+                alert.textContent = message;
+                alert.className = `alert ${type} show`;
+                
+                if (type === 'success') {
+                    setTimeout(() => {
+                        alert.classList.remove('show');
+                    }, 5000);
+                }
+            }
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                // Check honeypot
+                if (form._gotcha.value) {
+                    return; // Silent spam rejection
+                }
+
+                // Basic validation
+                const name = form.name.value.trim();
+                const email = form.email.value.trim();
+                const message = form.message.value.trim();
+
+                if (!name || !email || !message) {
+                    showAlert('Please fill in all required fields.', 'error');
+                    return;
+                }
+
+                // Set loading state
+                submitBtn.disabled = true;
+                submitBtn.classList.add('loading');
+                submitBtn.textContent = 'Sending...';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        showAlert('Message sent! We\'ll get back to you soon.', 'success');
+                        form.reset();
+                    } else {
+                        throw new Error('Network error');
+                    }
+                } catch (error) {
+                    showAlert('Failed to send. Please try again or email us directly.', 'error');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('loading');
+                    submitBtn.textContent = 'Send Message';
+                }
+            });
+        });
+    </script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
